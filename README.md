@@ -1,1 +1,1 @@
-# terraform-google-module-1-vpc-1-public-subnet
+# module-1-vpc-1-public-subnet/google
