@@ -56,11 +56,12 @@ locals {
 		"${local.Tag}-app",
 		"${local.Tag}-agent"
 	]
-	Preamble = "${local.UserLoginTag}-${local.UserProjectTag}-${local.Tag}-${local.Version}"
-	PublicVpcNetworkName = "${local.Preamble}-management-vpc-network"
-	PublicSubnetName = "${local.Preamble}-management-subnet"
+	InstanceId = var.InstanceId
+	Preamble = "${local.UserLoginTag}-${local.UserProjectTag}-${local.Tag}-${local.Version}-${local.InstanceId}"
+	PublicVpcNetworkName = "${local.Preamble}-public-vpc-network"
+	PublicSubnetName = "${local.Preamble}-public-subnet"
 	PublicSubnetIpRange = "10.0.10.0/24"
-	PublicFirewallRuleName = "${local.Preamble}-management-firewall-rule"
+	PublicFirewallRuleName = "${local.Preamble}-public-firewall-rule"
 	PublicFirewallRuleDirection = "INGRESS"
 	PublicFirewallRulePriority = "1000"
 	PublicFirewallRulePorts = var.PublicFirewallRulePorts
