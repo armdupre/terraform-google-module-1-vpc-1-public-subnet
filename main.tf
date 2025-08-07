@@ -1,6 +1,7 @@
 resource "google_compute_network" "PublicVpcNetwork" {
 	name = local.PublicVpcNetworkName
 	auto_create_subnetworks = "false"
+	mtu = local.PublicVpcNetworkMtu
 	routing_mode = "REGIONAL"
 }
 

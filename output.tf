@@ -7,6 +7,8 @@ output "PublicSubnet" {
 
 output "PublicVpcNetwork" {
 	value = {
+		"id" : google_compute_network.PublicVpcNetwork.id
+		"mtu" : google_compute_network.PublicVpcNetwork.mtu
 		"name" : google_compute_network.PublicVpcNetwork.name
 		"self_link" : google_compute_network.PublicVpcNetwork.self_link
 	}

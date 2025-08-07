@@ -20,6 +20,16 @@ variable "PublicFirewallRuleSourceIpRanges" {
 	type = list(string)
 }
 
+variable "PublicVpcNetworkMtu" {
+	default = 1460
+	description = "Maxium Transmission Unit associated with the public vpc network"
+	type = number
+	validation {
+		condition = contains([1460, 1500, 8896], var.PublicVpcNetworkMtu)
+		error_message = "PublicVpcNetworkMtu must be one of (1460 | 1500 | 8896) values."
+	}
+}
+
 variable "RegionName" {
 	default = "us-central1"
 	description = "Geographical location where resources can be hosted" 
@@ -49,7 +59,7 @@ variable "UserProjectTag" {
 }
 
 variable "Version" {
-	default = "10-00"
+	default = "11-00"
 	description = "Versioning of the application using the deployment"
 	type = string
 }

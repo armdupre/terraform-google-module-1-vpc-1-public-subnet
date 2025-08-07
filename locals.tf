@@ -57,8 +57,9 @@ locals {
 		"${local.Tag}-agent"
 	]
 	InstanceId = var.InstanceId
-	Preamble = "${local.UserLoginTag}-${local.UserProjectTag}-${local.Tag}-${local.Version}-${local.InstanceId}"
+	Preamble = replace("${local.UserLoginTag}-${local.UserProjectTag}-${local.Tag}-${local.Version}-${local.InstanceId}", "_", "-")
 	PublicVpcNetworkName = "${local.Preamble}-public-vpc-network"
+	PublicVpcNetworkMtu = var.PublicVpcNetworkMtu
 	PublicSubnetName = "${local.Preamble}-public-subnet"
 	PublicSubnetIpRange = "10.0.10.0/24"
 	PublicFirewallRuleName = "${local.Preamble}-public-firewall-rule"
